@@ -61,3 +61,79 @@ const productos = [
     imagen: "protectores-manos.webp",
   },
 ];
+
+let mostrarDetalle = (id) => {
+  document.getElementById ("detalle").style.display = "block";
+  document.getElementById("titulo-prod").innerText = productos=[id].nombre;
+  document.getElementById("descr-prod").innerText = productos=[id].description;
+  document.getElementById("precio-prod").innerText = productos=[id].precio;
+};
+
+let cerrarModal = () =>{
+  document.getElementById ("detalle").style.display = "none";
+}
+
+let mostrarCatalogo = () =>{
+  let contenido = "";
+
+  productos.forEach((prod,id) => {
+    contenido += `<div>
+      <img src="images/${prod.imagen}" alt="${prod.nombre}"/>
+      <h3>${prod.nombre}</h3>
+      <button type="button" onclick="mostrarDetalle(${id})">Ver Detalle</button>
+      <button type="button" onclick="agregarAlCarrito(${id})">Agregar al Carrito</button>
+    </div>`;
+  })
+
+  document.getElementById("catalogo").innerHTML = contenido;
+}
+  
+  let agregarAlCarrito = (id) =>{
+    
+    const listaInicial =JSON.parse(localStorage.getItem("carrito"));
+
+    if(listaInicial==null){
+      const listadoProductos = [];
+    }else{
+      listadoProductos = listaInicial;
+    }
+
+    listadoProductos.push(id);
+    localStorage.setItem("carrito", JSON.stringify(listadoProductos));
+}
+
+let mostrarCarrito = () => {
+  let contenido = "";
+
+  const carrito = JSON.parse(localStorage.getItem("carrito"));
+  if(carrito!=null){
+  carrito.forEach((num) => {
+    contenido += `<div>
+      <h3>${productos[num].nombre}</h3>
+      <p>${productos[num].precio}</p>
+      <button type="button(" onclick="eliminarProducto(${id})">Eliminar Producto</button
+    </div>`;
+  })
+
+  contenido +=<button type="button" onClick="vaciarCarrito()">Vaciar Carrito</button>
+  document.getElementById("carrito").innerHTML
+}
+  }
+
+
+let vaciarCarrito = () =>{
+  localStorage.removeItem("carrito")
+  window.location.reload();
+}
+
+let eliminarProducto = (id) =>{
+  const carrito= JSON.parse(localStorage.getItem("carrito"))
+  carrito.splice(id,1);
+  localStorage.setItem ("carrito", JSON.stringify(carrito))
+
+window.location.reload
+
+}
+
+
+  

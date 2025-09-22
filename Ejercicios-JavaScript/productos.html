@@ -2,14 +2,16 @@
 <html lang="es">
     <head>
         <title>Catalogo de Productos</title>
-        <link rel="stylesheet" href="store.css" type="text/css"
+        <link rel="stylesheet" href="store.css" type="text/css">
+        <script type="text/javascript" src="tienda.js"></script>
+       
 
     </head>
-    <body class="grid-container">
+    <body class="grid-container" onload="mostrarCatalogo()">
         <header class="item1">Catalogo de Productos</header>
                 <nav class="item2">
-            <a href="productos.html">Catalogo de Productos</a>
-            <a>Carrito de compras</a>
+            <a href="">Catalogo de Productos</a>
+            <a href="carrito.html">Carrito de compras</a>
         </nav>
         <aside class="item3">
             <form>
@@ -44,37 +46,16 @@
                 </fieldset>
             </form>
         </aside>
-        <main class="item4">
-            <div >
-                <img src="../Ejercicios-JavaScript/images/cabezal-cerrado.webp" 
-                alt="Cabezal Cerrado"/>
-                <h3>Cabezal Cerrador</h3>
-            </div>
-            <div>
-                <img src="../Ejercicios-JavaScript/images/escudo-potencia.webp"
-                alt="Escudo Potencia"/>
-                <h3>Escudo Potencia</h3>
-            </div>
-            <div>
-                <img src="../Ejercicios-JavaScript/images/foco-con-dedos.webp"
-                alt="Foco con dedos">
-                <h3>Foco con dedos</h3>
-            </div>
-            <div>
-                <img src="../Ejercicios-JavaScript/images/protectores-manos.webp"
-                alt="Protectores Manos">
-                <h3>Protectores Manos</h3>
-            </div>
-            <div>
-                <img src="../Ejercicios-JavaScript/images/dobok.webp"
-                alt="Dobok">
-                <h3>Dobok</h3>
-            </div>
-            <div>
-                <img src="../Ejercicios-JavaScript/images/protectores-pie.webp"
-                alt="Protectores Pie">
-                <h3>Protectores pie</h3>
-            </div>
+                 <dialog id="detalle">
+                <h2>Detalle del Producto</h2>
+                <h3 id="titulo-prod">Cabezal Cerrado</h3>
+                <p id="descrp-prod">Este producto viene del talle 1 al 3.</p>
+                <p id="precio-prod"></p>
+                <button type="button" onclick="cerrarModal()">Cerrar</button>
+            </dialog>
+        <main class="item4" id="catalogo">
+   
+
         </main>
     </body>
 </html>
