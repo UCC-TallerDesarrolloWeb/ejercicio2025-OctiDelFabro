@@ -1,5 +1,6 @@
 import { useState } from "react";
-import "./login.css"
+import { useNavigate } from "react-router-dom";
+import "./styles/login.scss"
 
 
 
@@ -8,12 +9,14 @@ import "./login.css"
 const Login = () => {
     const [usuario, setUsuario] = useState("");
     const [contraseña, setContraseña] = useState("");
+    const navigate = useNavigate();
     const handlerLogin = async (e) => {
         e.preventDefault();
 
 
         if (usuario === "admin" && contraseña === "admin") {
             console.log("Login OK");
+            navigate("/actividades")
         } else {
             console.log("Login Incorrecto");
         }
@@ -44,4 +47,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Login;
